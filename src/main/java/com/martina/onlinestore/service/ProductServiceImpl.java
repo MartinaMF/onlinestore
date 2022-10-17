@@ -1,5 +1,7 @@
 package com.martina.onlinestore.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,14 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	public Product findProductByName(String name) {
-		
 	Product product = productRepository.findByName(name);
 	return product;
+	}
+
+	@Override
+	public List<Product> findAllProducts() {
+		List products = productRepository.findAll();
+		return products;
 	}
 
 }

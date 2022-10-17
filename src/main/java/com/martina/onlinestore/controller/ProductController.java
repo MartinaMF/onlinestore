@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.martina.onlinestore.model.CartItem;
 import com.martina.onlinestore.model.Category;
 import com.martina.onlinestore.model.Product;
 import com.martina.onlinestore.service.CategoryService;
@@ -47,6 +48,9 @@ public String savePategory(@Valid @ModelAttribute("product")Product product,Bind
 }
 @GetMapping("/products")
 public String AllProducts(Model model) {
+	List products = productService.findAllProducts();
+	model.addAttribute("products",products);
 	return "products";
 }
+
 }
