@@ -20,6 +20,15 @@ private Admin admin;
 public Category() {
 	
 }
+
+public Category(String categoryName, String description, String image, Admin admin) {
+	super();
+	this.categoryName = categoryName;
+	this.description = description;
+	this.image = image;
+	this.admin = admin;
+}
+
 //Constructor with parameters
 public Category(Long categoryId, String categoryName, String description, String image, Admin admin) {
 	super();

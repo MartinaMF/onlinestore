@@ -15,18 +15,14 @@
 <body>
 <div class="container">
 <div class="row col-md-12">
-      <div th:if="${param.success}">
-          <div class="alert alert-info">
-            Item deleted successfuly!
-          </div>
-      </div>
+    
 <div th:each="category : ${categories}" class="card" style="width: 18rem;">
-  <img class="card-img-top" th:src="@{./images/pexels-shvets-production-8003897.jpg}" alt="Card image cap">
+  <img class="card-img-top" th:src="@{./images/ringsCategoryPic.jpg}" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="${category.categoryName}" class="card-title"></h5>
     <p th:text="${category.description}" class="card-text"></p>
-    <a href="#" class="btn btn-primary">delete category</a>
-    <a href="#" class="btn btn-primary">update category</a>
+    <a th:href="@{/show_all_categories/delete/{id}(id=${category.categoryId})}" class="btn btn-primary">delete category</a>
+    <a th:href="@{/show_update_form/{id}(id=${category.categoryId})}" class="btn btn-primary">update category</a>
   </div>
 </div>
 

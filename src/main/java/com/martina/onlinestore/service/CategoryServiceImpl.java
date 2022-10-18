@@ -1,6 +1,7 @@
 package com.martina.onlinestore.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,35 @@ public class CategoryServiceImpl implements CategoryService{
 	public Category findByCategoryName(String categoryName) {
 		Category category = categoryRepository.findByCategoryName(categoryName);
 		return category;
+	}
+	@Override
+	public Category findCategoryById(Long id) {
+		Optional<Category> optional = categoryRepository.findById(id);
+		Category category = null;
+		if(optional.isPresent()) {
+			category = optional.get();
+		}
+		else {
+			throw new RuntimeException("Category not found");
+		}
+		return category;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	

@@ -33,6 +33,14 @@ public CartItem() {
 	
 }
 
+public CartItem(Product product, Customer customer, int quantity, double price) {
+	super();
+	this.product = product;
+	this.customer = customer;
+	this.quantity = quantity;
+	this.price = price;
+}
+
 public CartItem(Long id, Product product, Customer customer, int quantity, double price) {
 	super();
 	Id = id;
