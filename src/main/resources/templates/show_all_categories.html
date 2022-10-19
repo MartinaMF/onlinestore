@@ -27,6 +27,11 @@
     </header>
 <div class="container">
 <section class="section">
+     <div th:if="${param.success}">
+          <div class="alert alert-info">
+            Category successfully deleted!
+          </div>
+      </div>
 <a th:href="@{/add_category}" class="btn btn-primary maycard">Add category</a>
 <div class="row col-md-12"> 
 <div th:each="category : ${categories}" class="card mycard" style="width: 18rem;">

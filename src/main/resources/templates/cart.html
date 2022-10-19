@@ -1,38 +1,77 @@
 <!DOCTYPE html>
-<html lang="en"
-    xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Registration and Login System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
-           <link href="../static/products.css" th:href="@{/style.css}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Registration and Login System</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<link href="../static/products.css" th:href="@{/style.css}"
+	rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400"
+	rel="stylesheet">
+
 </head>
 <body>
-<header>
-    <nav>
-      <div class="mycontainer align-center">
-      <a class="logo section-link" href="#">LOGO</a>
-      <ul class="navigation">
-        <li><a th:href="@{/index}" class="section-link">home</a></li>    
-        <li><a th:href="@{/products}"  class="section-link">shop now</a></li>
-        <li><a th:href="@{/cart}" class="section-link">Cart</a></li>
-        <li><a th:href="@{/logout}" class="section-link">Logout</a></li>
-      </ul>
-      <i class="icon-menu nav-toggle"></i>
-      </div>
-    </nav>
-    </header>
-
-<div class="container">
-    <div class="row col-md-10">
-        <h2>Cart</h2>
-    </div>
-   <h1 th:text=${name}></h1>
-</div>
+	<header>
+		<nav>
+			<div class="mycontainer align-center">
+				<a class="logo section-link" href="#">LOGO</a>
+				<ul class="navigation">
+					<li><a th:href="@{/index}" class="section-link">home</a></li>
+					<li><a th:href="@{/products}" class="section-link">shop
+							now</a></li>
+					<li><a th:href="@{/cart}" class="section-link">Cart</a></li>
+					<li><a th:href="@{/logout}" class="section-link">Logout</a></li>
+				</ul>
+				<i class="icon-menu nav-toggle"></i>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<section class="section">
+			<div class="row col-md-10">
+				<h2>Cart</h2>
+			</div>
+			<h1 th:text=${name}></h1>
+			<div class="row col-md-2">
+				<a th:href="@{/products}" class="btn btn-primary mycard">return to shopping</a>
+			</div>
+			<div class="row col-md-12">
+				<div th:if="${param.success}">
+					<div class="alert alert-info">item deleted !</div>
+				</div>
+				<div th:each="cartItem : ${customerItems}" class="card mb-3">
+					<div class="card-body">
+						<div class="d-flex justify-content-between">
+							<div class="d-flex flex-row align-items-center">
+								<div>
+									<img th:src="@{./images/ringsCategoryPic.jpg}"
+										class="img-fluid rounded-3" alt="Shopping item"
+										style="width: 65px;">
+								</div>
+								<div class="ms-3">
+									<h5 th:text="${cartItem.product.name}"></h5>
+									<p th:text="${cartItem.product.description}" class="small mb-0"></p>
+								</div>
+							</div>
+							<div class="d-flex flex-row align-items-center">
+								<div style="width: 50px;">
+									<h5 th:text="${cartItem.quantity}"class="fw-normal mb-0"></h5>
+								</div>
+								<div style="width: 80px;">
+									<h5 th:text="${cartItem.price}" class="mb-0"></h5>
+								</div>
+								<a th:href="@{/cart/delete/{id}(id=${cartItem.Id})}" class="btn btn-primary btn-sm mycard">Delete item</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 </body>
 </html>

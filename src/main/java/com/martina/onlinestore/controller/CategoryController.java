@@ -80,7 +80,7 @@ public String showAllCategories(Model model) {
 @RequestMapping(value="/show_all_categories/delete/{id}", method={RequestMethod.DELETE, RequestMethod.GET})
 public String deleteCategory(@PathVariable(value="id") Long id) {
 	categoryService.deleteCategory(id);
-	return "redirect:/show_all_categories";
+	return "redirect:/show_all_categories?success";
 }
 
 /**

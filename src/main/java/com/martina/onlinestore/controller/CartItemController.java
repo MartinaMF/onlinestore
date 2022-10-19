@@ -1,5 +1,7 @@
 package com.martina.onlinestore.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,10 +32,19 @@ public class CartItemController {
 	CartItemService cartItemService;
 	@Autowired
 	CustomerService customerService;
+	/**
+	 * return cart items based on currently logged in user
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@GetMapping("/cart")
 	public String cart(Model model,@AuthenticationPrincipal Authentication authentication) {
 		authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
+		Customer customer = customerService.findCustomerByEmail(currentPrincipalName);
+		List<CartItem> customerItems = cartItemService.findCustomerItems(customer);
+		model.addAttribute("customerItems",customerItems);
 		model.addAttribute("name",currentPrincipalName);
 		return "cart";
 	}
@@ -53,4 +64,10 @@ public class CartItemController {
 		return "redirect:/products?success";
 		
 	}
+	@RequestMapping(value="/cart/delete/{id}", method={RequestMethod.DELETE, RequestMethod.GET})
+	public String deleteCategory(@PathVariable(value="id") Long id) {
+		cartItemService.deleteItem(id);
+		return "redirect:/cart?success";
+	}
+
 }
