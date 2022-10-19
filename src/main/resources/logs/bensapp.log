@@ -1,0 +1,31 @@
+"2022-10-18 [restartedMain] INFO  c.m.o.OnlinestoreApplication - Starting OnlinestoreApplication using Java 17.0.4.1 on martina with PID 22164 (C:\Users\marti\Documents\servlet\onlinestore\target\classes started by marti in C:\Users\marti\Documents\servlet\onlinestore)
+""2022-10-18 [restartedMain] INFO  c.m.o.OnlinestoreApplication - No active profile set, falling back to 1 default profile: "default"
+""2022-10-18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-10-18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 4 JPA repository interfaces.
+""2022-10-18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2022-10-18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-10-18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.0.23]
+""2022-10-18 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-10-18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 332 ms
+""2022-10-18 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-10-18 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+""2022-10-18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+""2022-10-18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.mariadb.jdbc.Connection@5798bb52
+""2022-10-18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+""2022-10-18 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+""2022-10-18 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL5Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+""2022-10-18 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-10-18 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-10-18 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52621c36, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70222395, org.springframework.security.web.context.SecurityContextHolderFilter@69fc40da, org.springframework.security.web.header.HeaderWriterFilter@62439e76, org.springframework.security.web.authentication.logout.LogoutFilter@675e3f27, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e31a48f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@415841ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f96c79e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37f614c4, org.springframework.security.web.session.SessionManagementFilter@1d79c266, org.springframework.security.web.access.ExceptionTranslationFilter@6a085098, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@650452ff]
+""2022-10-18 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-10-18 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+""2022-10-18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2022-10-18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2022-10-18 [restartedMain] INFO  c.m.o.OnlinestoreApplication - Started OnlinestoreApplication in 1.321 seconds (process running for 9507.357)
+""2022-10-18 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2022-10-18 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+""2022-10-18 [Thread-22] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2022-10-18 [Thread-22] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-10-18 [Thread-22] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+""2022-10-18 [Thread-22] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+"

@@ -11,16 +11,35 @@
           crossorigin="anonymous">
           
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400" rel="stylesheet">
+     <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+
 </head>
 <body>
+
+<header>
+    <nav>
+      <div class="mycontainer align-center">
+      <a class="logo section-link" href="#">LOGO</a>
+      <ul class="navigation">
+        <li><a th:href="@{/index}" class="section-link">home</a></li>
+        <li><a th:href="@{/products}"  class="section-link">shop now</a></li>
+        <li><a th:href="@{/cart}" class="section-link">Cart</a></li>
+        <li><a th:href="@{/register}" class="section-link">Register</a></li>
+      </ul>
+      <i class="icon-menu nav-toggle"></i>
+      </div>
+    </nav>
+    </header>
+    
 <div class="container">
+<section class="section">
 <div class="row col-md-12">
       <div th:if="${param.success}">
           <div class="alert alert-info">
             Item successfully added!
           </div>
       </div>
-<div th:each="product : ${products}" class="card" style="width: 18rem;">
+<div th:each="product : ${products}" class="card mycard" style="width: 18rem;">
   <img class="card-img-top" th:src="@{./images/pexels-shvets-production-8003897.jpg}" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="${product.name}" class="card-title"></h5>
@@ -33,11 +52,18 @@
    <option value="4">4</option>
     <option value="5">5</option>
 </select>
-    <a href="#" class="btn btn-primary">Add to cart</a>
+    <a th:href="@{/add_to_cart/{id}(id=${product.productId})}"class="btn btn-primary">Add to cart</a>
   </div>
 </div>
 
     </div>
+    </section>
 </div>
+ <footer>
+      <div class="mycontainer align-center">
+        <a class="logo section-link" href="#">LOGO</a>
+        
+      </div>
+    </footer>
 </body>
 </html>

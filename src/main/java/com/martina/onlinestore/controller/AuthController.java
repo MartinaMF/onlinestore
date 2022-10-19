@@ -1,5 +1,7 @@
 package com.martina.onlinestore.controller;
 
+
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -9,7 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.martina.onlinestore.dto.CustomerDto;
 import com.martina.onlinestore.model.Customer;
@@ -29,6 +34,10 @@ public AuthController(CustomerService customerService) {
 @GetMapping("/index")
 public String home() {
 	return "index";
+}
+@GetMapping("/dashboard")
+public String dashboard() {
+	return "dashboard";
 }
 @GetMapping("/register")
 public String showRegistrationForm(Model model) {
@@ -53,16 +62,11 @@ public String registration(@Valid @ModelAttribute("customer") CustomerDto custom
 	customerService.saveCustomer(customerdto);
 	return "redirect:/register?success";
 }
+private org.slf4j.Logger logger =LoggerFactory.getLogger(getClass());
 @GetMapping("/login")
 public String login() {
 	return "login";
 }
-@GetMapping("/cart")
-public String cart(Model model,@AuthenticationPrincipal Authentication authentication) {
-	authentication = SecurityContextHolder.getContext().getAuthentication();
-	String currentPrincipalName = authentication.getName();
-	model.addAttribute("name",currentPrincipalName);
-	return "cart";
-}
+
 
 }

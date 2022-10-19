@@ -47,7 +47,13 @@ public void testCategoryById() {
 	entityManager.persist(category);
 	Category foundCategory = categoryRepo.findById(category.getCategoryId()).get();
 	 assertThat(foundCategory).isEqualTo(category);
-	
-	
+}
+@Test
+public void testFindByCategoryName() {
+	Admin admin = entityManager.find(Admin.class, 1);
+	Category category = new Category("earings","description","imag",admin);
+	entityManager.persist(category);
+	Category foundCategory = categoryRepo.findByCategoryName(category.getCategoryName());
+	assertThat(foundCategory).isEqualTo(category);
 }
 }
