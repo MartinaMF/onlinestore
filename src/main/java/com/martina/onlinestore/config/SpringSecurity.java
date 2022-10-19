@@ -28,6 +28,7 @@ public class SpringSecurity {
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/cart").authenticated()
+                .antMatchers("/add_to_cart/**").authenticated()
                 .antMatchers("/users").hasRole("ADMIN")
                 .and()
                 .formLogin(
