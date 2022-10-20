@@ -8,7 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.martina.onlinestore.model.CartItem;
 import com.martina.onlinestore.model.Category;
@@ -46,11 +49,28 @@ public String savePategory(@Valid @ModelAttribute("product")Product product,Bind
 	productService.saveProduct(product);
 	return "redirect:/add_product?success";
 }
+
+/**
+ * return list of all availabel products
+ * @param model
+ * @return
+ */
 @GetMapping("/products")
 public String AllProducts(Model model) {
-	List products = productService.findAllProducts();
+	List <Product>products = productService.findAllProducts();
 	model.addAttribute("products",products);
 	return "products";
+}
+@GetMapping("/manage_products")
+public String availableProducts(Model model) {
+	List<Product> products = productService.findAllProducts();
+	model.addAttribute("products",products);
+	return "manage_products";
+}
+@RequestMapping(value="/manage_products/delete/{id}", method={RequestMethod.DELETE, RequestMethod.GET})
+public String deleteCategory(@PathVariable(value="id") Long id) {
+	productService.deleteProduct(id);
+	return "redirect:/manage_products?success";
 }
 
 }

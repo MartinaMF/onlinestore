@@ -18,8 +18,9 @@
       <div class="mycontainer align-center">
       <a class="logo section-link" href="#">LOGO</a>
       <ul class="navigation">
-        <li><a th:href="@{/show_all_categories}" class="btn btn-primary"> categories</a></li>
-        <li><a th:href="@{/products}" class="btn btn-primary">products</a></li>
+        <li><a th:href="@{/show_all_categories}" class="btn btn-primary btn-large mycard"> categories</a></li>
+        <li><a th:href="@{/manage_products}" class="btn btn-primary btn-large mycard">products</a></li>
+        <li><a th:href="@{/index}" class="btn btn-primary btn-large mycard">visit site</a></li>
       </ul>
       <i class="icon-menu nav-toggle"></i>
       </div>
@@ -35,7 +36,7 @@
 <a th:href="@{/add_category}" class="btn btn-primary maycard">Add category</a>
 <div class="row col-md-12"> 
 <div th:each="category : ${categories}" class="card mycard" style="width: 18rem;">
-  <img class="card-img-top" th:src="@{./images/ringsCategoryPic.jpg}" alt="Card image cap">
+  <img class="card-img-top" th:src="@{./images/{image}(image=${category.image})}" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="${category.categoryName}" class="card-title"></h5>
     <p th:text="${category.description}" class="card-text"></p>

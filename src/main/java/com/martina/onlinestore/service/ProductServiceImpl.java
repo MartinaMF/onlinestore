@@ -45,4 +45,10 @@ public class ProductServiceImpl implements ProductService{
 		return product;
 	}
 
+	@Override
+	public void deleteProduct(Long id) {
+		productRepository.deleteById(id);
+		
+	}
+
 }

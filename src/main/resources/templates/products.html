@@ -40,7 +40,7 @@
           </div>
       </div>
 <div th:each="product : ${products}" class="card mycard" style="width: 18rem;">
-  <img class="card-img-top" th:src="@{./images/pexels-shvets-production-8003897.jpg}" alt="Card image cap">
+  <img class="card-img-top" th:src="@{./images/{image}(image=${product.image})}" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="${product.name}" class="card-title"></h5>
     <p th:text="${product.description}" class="card-text"></p>
