@@ -48,7 +48,13 @@ public class CartItemController {
 		model.addAttribute("name",currentPrincipalName);
 		return "cart";
 	}
-	
+	/**
+	 * add item to cart
+	 * @param id
+	 * @param model
+	 * @param authentication
+	 * @return
+	 */
 	@RequestMapping(value="/add_to_cart/{id}", method={RequestMethod.POST,RequestMethod.GET})
 	public String addItemToCart(@PathVariable(value="id") Long id,Model model,@AuthenticationPrincipal Authentication authentication) {
 		authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -64,6 +70,11 @@ public class CartItemController {
 		return "redirect:/products?success";
 		
 	}
+	/**
+	 * delete item from the cart
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value="/cart/delete/{id}", method={RequestMethod.DELETE, RequestMethod.GET})
 	public String deleteCategory(@PathVariable(value="id") Long id) {
 		cartItemService.deleteItem(id);
